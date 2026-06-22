@@ -1,0 +1,31 @@
+{
+  "description": "直播复盘日报 — 运营输入字段规格",
+  "version": "1.0",
+  "fields": {
+    "required": [
+      {"name": "日期", "type": "date", "example": "2026-06-14", "source": "手填"},
+      {"name": "直播间", "type": "string", "example": "炫迈旗舰店", "source": "手填"},
+      {"name": "直播时长", "type": "number", "unit": "小时", "example": 8, "source": "手填"},
+      {"name": "整体GMV", "type": "number", "unit": "元", "example": 65000, "source": "罗盘/手填", "note": "含券"},
+      {"name": "退款金额", "type": "number", "unit": "元", "example": 4500, "source": "罗盘/手填"},
+      {"name": "广告消耗", "type": "number", "unit": "元", "example": 42000, "source": "千川/手填"},
+      {"name": "曝光次数", "type": "number", "example": 320000, "source": "罗盘"},
+      {"name": "直播间PV", "type": "number", "example": 15000, "source": "罗盘"},
+      {"name": "商品点击次数", "type": "number", "example": 2850, "source": "罗盘"},
+      {"name": "成交订单数", "type": "number", "example": 210, "source": "罗盘"},
+      {"name": "成交人数", "type": "number", "example": 185, "source": "罗盘"}
+    ],
+    "optional": [
+      {"name": "主推商品", "type": "string", "example": "爆酸*2", "source": "手填"},
+      {"name": "场次标签", "type": "string", "example": "日常场", "source": "手填"},
+      {"name": "异常备注", "type": "string", "example": "无", "source": "手填"}
+    ]
+  },
+  "history": {
+    "description": "昨日数据和近7日数据，用于环比和均值计算",
+    "format": "与 required 字段相同结构的数组",
+    "minimum_days": 1,
+    "ideal_days": 7,
+    "note": "无历史数据时跳过环比，仅做绝对值分析"
+  }
+}

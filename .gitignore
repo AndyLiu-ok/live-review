@@ -1,0 +1,4 @@
+output/
+scripts/__pycache__/
+*.pyc
+examples/test_*.csv

@@ -1,0 +1,92 @@
+{
+  "_doc": "预警阈值配置，来源：AI模型直播分析表参考-初稿0610.xlsx。可按实际账号情况调整。",
+  "综合ROI": {
+    "type": "range",
+    "normal": [2.0, 3.5],
+    "yellow_below": 2.0,
+    "red_below": 1.8,
+    "unit": "",
+    "note": "低于红线=亏钱在播"
+  },
+  "退后ROI": {
+    "type": "range",
+    "normal": [1.8, 3.2],
+    "yellow_below": 1.8,
+    "red_below": 1.5,
+    "unit": ""
+  },
+  "退款率": {
+    "type": "range",
+    "normal": [0.018, 0.035],
+    "yellow_above": 0.035,
+    "red_above": 0.05,
+    "unit": "%",
+    "display_multiplier": 100
+  },
+  "CPM": {
+    "type": "range",
+    "normal": [80, 120],
+    "yellow_above": 120,
+    "red_above": 130,
+    "unit": "元"
+  },
+  "千次曝光成交": {
+    "type": "range",
+    "normal": [200, 400],
+    "yellow_below": 200,
+    "red_below": 150,
+    "unit": "元"
+  },
+  "曝光观看率": {
+    "type": "range",
+    "normal": [0.047, 0.057],
+    "yellow_below": 0.047,
+    "red_below": 0.04,
+    "unit": "%",
+    "display_multiplier": 100
+  },
+  "商品观看点击率": {
+    "type": "range",
+    "normal": [0.77, 0.86],
+    "yellow_below": 0.70,
+    "red_below": 0.50,
+    "unit": "%",
+    "display_multiplier": 100
+  },
+  "点击成交率": {
+    "type": "range",
+    "normal": [0.085, 0.098],
+    "yellow_below": 0.085,
+    "red_below": 0.07,
+    "unit": "%",
+    "display_multiplier": 100
+  },
+  "观看成交率": {
+    "type": "range",
+    "normal": [0.065, 0.085],
+    "yellow_below": 0.065,
+    "red_below": 0.05,
+    "unit": "%",
+    "display_multiplier": 100
+  },
+  "GPM": {
+    "type": "range",
+    "normal": [3500, 5000],
+    "yellow_below": 3500,
+    "red_below": 3000,
+    "unit": "元"
+  },
+  "小时产出": {
+    "type": "range",
+    "normal": [3500, 5500],
+    "yellow_below": 3500,
+    "red_below": 3000,
+    "unit": "元"
+  },
+  "环比波动": {
+    "type": "change",
+    "yellow_pct": 0.10,
+    "red_pct": 0.15,
+    "note": "环比波动超10%黄色预警，超15%红色预警"
+  }
+}
