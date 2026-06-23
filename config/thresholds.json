@@ -34,7 +34,7 @@
     "type": "range",
     "normal": [200, 400],
     "yellow_below": 200,
-    "red_below": 150,
+    "red_below": 160,
     "unit": "元"
   },
   "曝光观看率": {
@@ -48,8 +48,8 @@
   "商品观看点击率": {
     "type": "range",
     "normal": [0.77, 0.86],
-    "yellow_below": 0.70,
-    "red_below": 0.50,
+    "yellow_below": 0.77,
+    "red_below": 0.75,
     "unit": "%",
     "display_multiplier": 100
   },

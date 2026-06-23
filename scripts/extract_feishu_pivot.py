@@ -82,7 +82,7 @@ def parse_value(v):
     elif re.match(r'^[\d,]+$', v):
         v = v.replace(',', '')
     # 空值/无效值
-    if v == '' or v == '#DIV/0!' or v == '0' or v == '-' or v == '#N/A':
+    if v == '' or v == '#DIV/0!' or v == '-' or v == '#N/A':
         return None
     # 百分比
     if '%' in v:
