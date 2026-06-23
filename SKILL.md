@@ -43,7 +43,7 @@ python --version 2>&1
 lark-cli --version 2>&1
 
 # 检查飞书认证（飞书源才需要）
-lark-cli auth whoami --as user --format json 2>&1
+lark-cli auth status 2>&1
 ```
 
 - Python缺失 → 提示用户安装（winget或手动下载，必须勾选Add to PATH）
