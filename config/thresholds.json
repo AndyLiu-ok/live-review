@@ -78,10 +78,13 @@
   },
   "小时产出": {
     "type": "range",
-    "normal": [3500, 5500],
-    "yellow_below": 3500,
-    "red_below": 3000,
-    "unit": "元"
+    "normal": [3800, 4700],
+    "yellow_below": 3800,
+    "yellow_above": 4700,
+    "red_below": 3500,
+    "red_above": 5000,
+    "unit": "元",
+    "note": "黄色预警: 3500-3800 或 4700-5000；红色预警: <3500 或 >5000"
   },
   "环比波动": {
     "type": "change",

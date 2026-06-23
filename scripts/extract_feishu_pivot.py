@@ -343,11 +343,22 @@ def main():
         "7日均值": week_avg_data,
     }
     
+    # 计算平均小时消耗
+    hours = today_data.get("直播时长")
+    spend = today_data.get("广告消耗")
+    if hours and spend and isinstance(hours, (int, float)) and isinstance(spend, (int, float)) and hours > 0:
+        today_data["平均小时消耗"] = round(spend / hours, 2)
+    if yesterday_data:
+        yh = yesterday_data.get("直播时长")
+        ys = yesterday_data.get("广告消耗")
+        if yh and ys and isinstance(yh, (int, float)) and isinstance(ys, (int, float)) and yh > 0:
+            yesterday_data["平均小时消耗"] = round(ys / yh, 2)
+
     # 计算环比和vs均值
     if yesterday_data:
         changes = {}
         for field in REQUIRED_FIELDS + ["综合ROI", "退后ROI", "退款率", "GPM", "CPM",
-                                         "千次曝光成交", "小时产出", "曝光观看率",
+                                         "千次曝光成交", "小时产出", "平均小时消耗", "曝光观看率",
                                          "商品观看点击率", "点击成交率", "观看成交率"]:
             t = today_data.get(field)
             p = yesterday_data.get(field)
@@ -362,7 +373,7 @@ def main():
     if week_avg_data:
         vs_avg = {}
         for field in REQUIRED_FIELDS + ["综合ROI", "退后ROI", "退款率", "GPM", "CPM",
-                                         "千次曝光成交", "小时产出", "曝光观看率",
+                                         "千次曝光成交", "小时产出", "平均小时消耗", "曝光观看率",
                                          "商品观看点击率", "点击成交率", "观看成交率"]:
             t = today_data.get(field)
             a = week_avg_data.get(field)
