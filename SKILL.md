@@ -64,7 +64,7 @@ lark-cli auth status 2>&1
 - 如需环境检查，在此步并行执行
 
 ⚠️ **速度规则（必须遵守）**：
-- 不要读取 scripts/ 目录下的 .py 文件内容，直接按命令调用即可
+- 不要读取 scripts/ 目录下的 .py 文件内容，直接按命令调用即可（注意：extract_feishu_pivot.py 和 md_to_html.py 都必须实际调用，"不读内容"≠"不调用"）
 - config/thresholds.json 不需要读取，脚本内部自动加载
 - config/input_spec.json 不需要读取
 - 只需读取 examples/sample_daily_report.md（作为 few-shot 样本）
@@ -139,16 +139,20 @@ python ~/.workbuddy/skills/live-review/scripts/extract_feishu_pivot.py \
 
 将 facts_summary.json 注入prompt（见下方"日报生成prompt"章节），由LLM生成五段式日报。
 
-### Step 6（1 turn）：输出
+⚠️ 生成 MD 内容后**不要停**，必须继续执行 Step 6 转 HTML。
+
+### Step 6（1 turn）：输出（MD + HTML 双格式，缺一不可）
+
+⚠️ **本步骤两个文件都必须生成。只生成 MD 不生成 HTML = 任务未完成，不要在此提前结束。**
 
 1. 保存MD文件到 `output/{直播间}_{日期}_复盘日报.md`
-2. 用脚本转HTML：
+2. **必须**用脚本转HTML（md_to_html.py 是必调脚本，不可跳过）：
 
 ```bash
 python ~/.workbuddy/skills/live-review/scripts/md_to_html.py "~/.workbuddy/skills/live-review/output/{直播间}_{日期}_复盘日报.md"
 ```
 
-3. 展示结果，告诉用户两个文件路径
+3. 确认 HTML 文件已生成后，展示结果，告诉用户两个文件路径（.md + .html）
 
 ---
 
