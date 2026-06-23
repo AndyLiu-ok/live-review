@@ -200,6 +200,9 @@ def _collect_numbered_list(lines, start):
                     sub_items, i = _collect_bullet_list(lines, i, len(bm.group(1)))
                     items[-1]["children"] = sub_items
                     continue
+                if sl.strip().startswith("---"):
+                    i += 1
+                    continue
                 items[-1].setdefault("extra", [])
                 items[-1]["extra"].append(sl)
                 i += 1

@@ -60,9 +60,15 @@ lark-cli auth status 2>&1
 ### Step 1（并行，1 turn）
 
 - 确定目标日期（用户指定或推算"上周X"）
-- 读取 skill 配置文件（input_spec.json、thresholds.json）
-- 读取 few-shot 样本（sample_daily_report.md）
+- 读取 few-shot 样本（examples/sample_daily_report.md）
 - 如需环境检查，在此步并行执行
+
+⚠️ **速度规则（必须遵守）**：
+- 不要读取 scripts/ 目录下的 .py 文件内容，直接按命令调用即可
+- config/thresholds.json 不需要读取，脚本内部自动加载
+- config/input_spec.json 不需要读取
+- 只需读取 examples/sample_daily_report.md（作为 few-shot 样本）
+- 环境检查已通过的不要重复检查
 
 ### Step 2（1 turn）：解析wiki URL → 获取表格信息
 

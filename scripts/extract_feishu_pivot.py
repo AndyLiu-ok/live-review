@@ -343,6 +343,13 @@ def main():
         "7日均值": week_avg_data,
     }
     
+    # 7日均值的平均小时消耗
+    if week_avg_data:
+        wh = week_avg_data.get("直播时长")
+        ws = week_avg_data.get("广告消耗")
+        if wh and ws and isinstance(wh, (int, float)) and isinstance(ws, (int, float)) and wh > 0:
+            week_avg_data["平均小时消耗"] = round(ws / wh, 2)
+
     # 计算平均小时消耗
     hours = today_data.get("直播时长")
     spend = today_data.get("广告消耗")
